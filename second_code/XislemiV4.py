@@ -55,7 +55,7 @@ w_list_1 =  np.genfromtxt('w_list_1.csv', delimiter=',')
 
 w_list_2 =  np.genfromtxt('w_list_2.csv', delimiter=',')  
 
-for i in range(10000):  
+for i in range(loop):  
 
     def sigmoid(x):
             return 1 / (1+E**-x)
