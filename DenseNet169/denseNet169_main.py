@@ -5,27 +5,19 @@ import torch.optim as opt
 import torch.nn.functional as F
 import numpy as np
 #from model import *
-from densenet169 import *
-from Dataloader2 import*
-
-######
-# çoklu target desteklenmiyor düzelt
-
-
-#####
-
-
+from densenet169_2 import *   # densenet169
+from Dataloader4Deneme import*
 
 
 if __name__=="__main__":
 
-    n_epochs = 10 # tüm veriyi 3 kez eğitim için kullanıcaz
+    n_epochs = 60 # tüm veriyi 3 kez eğitim için kullanıcaz
     batchSizeTrain = 64 # veriyi 64 lü parçalara ayırıp ,her biri için güncelleme yapıp bir sonrakine ilerleme
    
     batchSizeTest = 1000
-    learning_rate = 0.01
+    learning_rate = 0.001 # 0.001     %42
     
-    momentum = 0.9
+    momentum = 0.99 # 0.9
    
     device = "cpu"
 
@@ -46,14 +38,24 @@ if __name__=="__main__":
     for e in range(n_epochs):
         print(e+1)
         for batch,target in trainLoader:
-            # print(i, (batch, target))
+            #print(len(batch))
+            #print(len(target))
+            
+            #print(batch.shape,target.shape)
+
+
+            """print(batch[0], target[0])
+            a = input("a")"""
+
+
             optimizer.zero_grad() #Gradientleri sıfırla
             o=myModel.forward(batch.to(device))
             #loss=F.nll_loss(o,target.to(device))
             loss = F.cross_entropy(o, torch.argmax(target, dim=1).to(device))# cross entropy çok boyutlu targetlarda kullanılır
             loss.backward()
             optimizer.step() # ağırlık güncellemesi
-            
+        
+    
     #Test
     myModel.eval() # evolate = değerlendir
     testLoss = 0
@@ -71,9 +73,9 @@ if __name__=="__main__":
     testLoss /= len(testLoader.dataset)
 
   
-    print('\nTest set: Accuracy: {}/{} ({:.0f}%)\n'.format(
+    print('\nTest set: Accuracy: {}/{} ({:.0f}%) - lr : {}\n'.format(
         correct, len(testLoader.dataset),
-        100. * correct / len(testLoader.dataset)))
+        100. * correct / len(testLoader.dataset),learning_rate))
 
 
 
@@ -101,7 +103,7 @@ pool4 çıktısı: torch.Size([64, 240, 3, 3])
 fc1 çıktısı: torch.Size([64, 500])
 fcDout çıktısı: torch.Size([64, 500])
 fc2 çıktısı: torch.Size([64, 50])
-fc3 çıktısı: torch.Size([64, 6])
+fc3 çıktısı: torch.Size([64, 5])
 
 
 
