@@ -139,6 +139,6 @@ optimizer = torch.optim.Adam(myModel.parameters(), lr=learning_rate, betas=(0.9,
                                          lr     batchSizeTrain   n_epochs
 
 Test set: Accuracy: 2262/6000 (38%)  - 0.001   -     64       -    10     
-Test set: Accuracy:         ?        - 0.001   -     64       -    30  
+Test set: Accuracy: 2353/6000 (39%)  - 0.001   -     64       -    30  
 
 """
