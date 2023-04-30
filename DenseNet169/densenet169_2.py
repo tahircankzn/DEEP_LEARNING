@@ -48,35 +48,6 @@ class Network(nn.Module):
         
 
 
-    
-    def denseblok_2(self,size,x):
-            
-            
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-            
-            
-        return x
-            
-            
-            
-    
-
 
     def forward(self, x):
 
@@ -90,12 +61,6 @@ class Network(nn.Module):
         #y1 = x   # [64, 30, 55, 55]
 
 
-        # dense layer ->
-        #x = self.denseblok_2(30,x) #[64, 1920, 55, 55]
-
-        
-        
-
         # transition layer 1 ->
         x = self.conv2(x)
         x = self.bn2(x)
@@ -103,13 +68,7 @@ class Network(nn.Module):
         x = self.pool2(x)
         x = torch.relu(x)  # [64, 3840, 14, 14]
 
-
-
-        # dense layer ->
         
-        #x = self.denseblok_2(60,x) #[64, 3840, 14, 14]
-
-
 
         # transition layer 2 ->
         x = self.conv3(x)
@@ -120,11 +79,7 @@ class Network(nn.Module):
         
 
 
-        # dense layer ->
-        #x = self.denseblok_2(120,x) #[64, 7680, 7, 7]
-        #x = torch.relu(x)
-        
-        
+ 
 
         # transition layer 3 ->
         x = self.conv4(x)
@@ -132,16 +87,6 @@ class Network(nn.Module):
         x = self.conv4_drop(x)
         #x = self.pool4(x)
         x = torch.relu(x)
-
-        # dense layer ->
-        #x = self.denseblok_2(240,x) #[64, 15360, 7, 7]
-        #x = torch.relu(x)
-
-
-        #print(x.__len__())
-        #print(x[0].__len__())
-        #print(x.size())
-        #print(x[0][0].__len__())
 
 
 
