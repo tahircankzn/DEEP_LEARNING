@@ -169,28 +169,30 @@ class Network(nn.Module):
         
 
 """
-                                        lr      batchSizeTrain   n_epochs
-
-Test set: Accuracy: 2297/6000 (38%) -  0.0005 -      64       -    80        X
-Test set: Accuracy: 2000/6000 (33%) -  0.0005 -     256       -    10        X
-Test set: Accuracy: 2000/6000 (33%) -  0.001  -     256       -    10        X
-Test set: Accuracy: 2002/6000 (33%) -  0.01   -     256       -    10        X
+__________________________________________________________________________________________________________________________________
+opt.SGD
 
 
+                                        lr      batchSizeTrain   n_epochs    momentum
 
+Test set: Accuracy: 2297/6000 (38%) -  0.0005 -      64       -    80      -   0.99     
+Test set: Accuracy: 2000/6000 (33%) -  0.0005 -     256       -    10      -   0.99     
+Test set: Accuracy: 2000/6000 (33%) -  0.001  -     256       -    10      -   0.99     
+Test set: Accuracy: 2002/6000 (33%) -  0.01   -     256       -    10      -   0.99                      
+Test set: Accuracy: 2507/6000 (42%) -  0.001  -      64       -    60      -   0.99      
+Test set: Accuracy: 3259/6000 (54%) -  0.001  -      64       -    100     -   0.99     
+Test set: Accuracy: 2479/6000 (41%) -  0.005  -      64       -    60      -   0.99     
+Test set: Accuracy:                 -  0.008  -      64       -    60      -   0.99     
+Test set: Accuracy:                 -  0.0001 -      64       -    60      -   0.99  
+Test set: Accuracy:                 -  0.003  -      64       -    60      -   0.99   
 
-CHATGPT ÖNERİSİ VE SONUÇLARI :
-learning rate: 0.0001 - 0.001
-batchSizeTrain: 32-128
-n_epochs: 50 veya daha fazla
+__________________________________________________________________________________________________________________________________
+torch.optim.Adam
+optimizer = torch.optim.Adam(myModel.parameters(), lr=learning_rate, betas=(0.9, 0.999), eps=1e-08, weight_decay=0.00002)
 
-                                        lr     batchSizeTrain   n_epochs
+                                         lr     batchSizeTrain   n_epochs
 
-Test set: Accuracy: 2507/6000 (42%)  -  0.001  -     64       -    60 
-Test set: Accuracy:                  -  0.003  -     64       -    60
-Test set: Accuracy: 2479/6000 (41%)  -  0.005  -     64       -    60
-Test set: Accuracy:                  -  0.008  -     64       -    60
-Test set: Accuracy:                  -  0.0001 -     64       -    60
-
+Test set: Accuracy: 2262/6000 (38%)  - 0.001   -     64       -    10     
+Test set: Accuracy:                  - 0.001   -     64       -    30  
 
 """
