@@ -116,6 +116,7 @@ class Network(nn.Module):
 """
 __________________________________________________________________________________________________________________________________
 opt.SGD
+optimizer = opt.SGD(myModel.parameters(), lr=learning_rate, momentum=momentum)
 
 
                                         lr      batchSizeTrain   n_epochs    momentum
