@@ -188,7 +188,7 @@ n_epochs: 50 veya daha fazla
 
 Test set: Accuracy: 2507/6000 (42%)  -  0.001  -     64       -    60 
 Test set: Accuracy:                  -  0.003  -     64       -    60
-Test set: Accuracy:                  -  0.005  -     64       -    60
+Test set: Accuracy: 2479/6000 (41%)  -  0.005  -     64       -    60
 Test set: Accuracy:                  -  0.008  -     64       -    60
 Test set: Accuracy:                  -  0.0001 -     64       -    60
 
