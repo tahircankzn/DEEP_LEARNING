@@ -288,12 +288,13 @@ Test set: Accuracy: 2297/6000 (38%) -  0.0005 -      64       -    80      -   0
 Test set: Accuracy: 2000/6000 (33%) -  0.0005 -     256       -    10      -   0.99     
 Test set: Accuracy: 2000/6000 (33%) -  0.001  -     256       -    10      -   0.99     
 Test set: Accuracy: 2002/6000 (33%) -  0.01   -     256       -    10      -   0.99                      
-Test set: Accuracy: 2507/6000 (42%) -  0.001  -      64       -    60      -   0.99      
+Test set: Accuracy: 2507/6000 (42%) -  0.001  -      64       -    60      -   0.99 
+Test set: Accuracy:      DENE       -  0.01   -      64       -    60      -   0.99
 Test set: Accuracy: 3259/6000 (54%) -  0.001  -      64       -    100     -   0.99     
 Test set: Accuracy: 2479/6000 (41%) -  0.005  -      64       -    60      -   0.99     
-Test set: Accuracy:        ?        -  0.008  -      64       -    60      -   0.99     
-Test set: Accuracy:        ?        -  0.0001 -      64       -    60      -   0.99  
-Test set: Accuracy:        ?        -  0.003  -      64       -    60      -   0.99   
+Test set: Accuracy:                 -  0.008  -      64       -    60      -   0.99     
+Test set: Accuracy:                 -  0.0001 -      64       -    60      -   0.99  
+Test set: Accuracy:                 -  0.003  -      64       -    60      -   0.99   
 
 __________________________________________________________________________________________________________________________________
 torch.optim.Adam
@@ -304,4 +305,38 @@ optimizer = torch.optim.Adam(myModel.parameters(), lr=learning_rate, betas=(0.9,
 Test set: Accuracy: 2262/6000 (38%)  - 0.001   -     64       -    10     
 Test set: Accuracy: 2353/6000 (39%)  - 0.001   -     64       -    30  
 Test set: Accuracy: 2487/6000 (41%)  - 0.001   -     64       -    60 
+
+__________________________________________________________________________________________________________________________________
+optimizer = opt.RMSprop(myModel.parameters(), lr=learning_rate, momentum=momentum, weight_decay=0.0001)
+
+
+                                         lr     batchSizeTrain   n_epochs
+
+Test set: Accuracy: 2000/6000 (33%)  - 0.001   -     64       -    10 
+
+
+
+
+__________________________________________________________________________________________________________________________________
+                                        lr     batchSizeTrain   n_epochs
+2. uzun deneme(kayıtlı)                                        
+Test set: Accuracy: 2295/6000 (38%) -  0.001  -      64       -    40     -   0.99
+Test set: Accuracy: 2811/6000 (47%) -  0.001  -      64       -    80     -   0.99
+Test set: Accuracy: 3142/6000 (52%) -  0.001  -      64       -    100    -   0.99 
+Test set: Accuracy: 3522/6000 (59%) -  0.001  -      64       -    120    -   0.99
+Test set: Accuracy: 3785/6000 (63%) -  0.001  -      64       -    140    -   0.99
+Test set: Accuracy:                 -  0.001  -      64       -    160    -   0.99
+
+
+İlk deneme :
+Test set: Accuracy: 3259/6000 (54%) -  0.001  -      64       -    100     -   0.99
+
+
+
+
+
+
+
+
+
 """
