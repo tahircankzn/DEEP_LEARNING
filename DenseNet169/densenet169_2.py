@@ -325,8 +325,7 @@ Test set: Accuracy: 2811/6000 (47%) -  0.001  -      64       -    80     -   0.
 Test set: Accuracy: 3142/6000 (52%) -  0.001  -      64       -    100    -   0.99 
 Test set: Accuracy: 3522/6000 (59%) -  0.001  -      64       -    120    -   0.99
 Test set: Accuracy: 3785/6000 (63%) -  0.001  -      64       -    140    -   0.99
-Test set: Accuracy:                 -  0.001  -      64       -    160    -   0.99
-
+Test set: Accuracy: 4290/6000 (72%) -  0.001  -      64       -    160    -   0.99
 
 İlk deneme :
 Test set: Accuracy: 3259/6000 (54%) -  0.001  -      64       -    100     -   0.99
