@@ -10,7 +10,7 @@ class Network(nn.Module):
         self.conv1 = nn.Conv2d(1,30,kernel_size=7,stride=2,padding=3) # 64 , 30 , 112 , 112
         self.pool1 = nn.MaxPool2d(kernel_size=3,stride=2)
         
-        # (BU kısmda dense katmanı kullanılıcak sonra)
+        
 
         # transition layer 1 ->
         self.conv2 = nn.Conv2d(30,60,kernel_size=1,stride=2) # 64 , 30 , 56 , 56
@@ -18,7 +18,7 @@ class Network(nn.Module):
         self.conv2_drop = nn.Dropout2d()
         self.pool2 = nn.MaxPool2d(kernel_size=2,stride=2)
 
-        # (BU kısımda dense katmanı kullanılıcak sonra)
+       
 
         # transition layer 2 ->
         self.conv3 = nn.Conv2d(60,120,kernel_size=1)
@@ -26,7 +26,7 @@ class Network(nn.Module):
         self.conv3_drop = nn.Dropout2d()
         self.pool3 = nn.MaxPool2d(kernel_size=2,stride=2)
 
-        # (BU kısımda dense katmanı kullanılıcak sonra)
+        
 
         # transition layer 3 ->
         self.conv4 = nn.Conv2d(120,240,kernel_size=1)
@@ -34,7 +34,7 @@ class Network(nn.Module):
         self.conv4_drop = nn.Dropout2d()
         self.pool4 = nn.MaxPool2d(kernel_size=2,stride=2)
 
-        # (BU kısımda dense katmanı kullanılıcak sonra)
+        
 
         # classification layer->
         self.fc1 = nn.Linear(11760, 5000)
@@ -163,34 +163,6 @@ class Network(nn.Module):
         
 
 
-    
-    def denseblok_2(self,size,x):
-            
-            
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-
-        x = nn.Conv2d(size,size,kernel_size=1)(x)
-        x = nn.Conv2d(size,size,kernel_size=3,padding=1)(x)
-            
-            
-        return x
-            
-            
-            
-    
 
 
     def forward(self, x):
@@ -205,8 +177,7 @@ class Network(nn.Module):
         #y1 = x   # [64, 30, 55, 55]
 
 
-        # dense layer ->
-        #x = self.denseblok_2(30,x) #[64, 1920, 55, 55]
+        
 
         
         
@@ -220,9 +191,7 @@ class Network(nn.Module):
 
 
 
-        # dense layer ->
-        
-        #x = self.denseblok_2(60,x) #[64, 3840, 14, 14]
+       
 
 
 
@@ -235,9 +204,7 @@ class Network(nn.Module):
         
 
 
-        # dense layer ->
-        #x = self.denseblok_2(120,x) #[64, 7680, 7, 7]
-        #x = torch.relu(x)
+       
         
         
 
@@ -248,9 +215,7 @@ class Network(nn.Module):
         #x = self.pool4(x)
         x = torch.relu(x)
 
-        # dense layer ->
-        #x = self.denseblok_2(240,x) #[64, 15360, 7, 7]
-        #x = torch.relu(x)
+        
 
 
         # Convolüsyon çıkışını vektör haline getir
