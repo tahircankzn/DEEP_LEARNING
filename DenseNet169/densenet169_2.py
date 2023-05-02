@@ -283,6 +283,9 @@ Test set: Accuracy: 2000/6000 (33%)  - 0.001   -     64       -    10
 
 
 __________________________________________________________________________________________________________________________________
+opt.SGD
+optimizer = opt.SGD(myModel.parameters(), lr=learning_rate, momentum=momentum)
+
                                         lr     batchSizeTrain   n_epochs
 2. uzun deneme(kayıtlı)                                        
 Test set: Accuracy: 2295/6000 (38%) -  0.001  -      64       -    40     -   0.99
