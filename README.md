@@ -1,1 +1,1 @@
-![image](first_code/deep learning  tree - trying.png).
+![Oyun Ekranı](first_code/deep learning  tree - trying.png)
